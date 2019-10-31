@@ -5,7 +5,7 @@
 
 int ehPrimo(int n,int rank,int numProc){
    int i, j, prime, t=0;
-   printf("[");
+   printf("processo %d [",numProc);
    for(j = 1 + rank; j <= n; j = j + numProc){
    		prime = 1;
    for(i = 2; i < j; i++){
@@ -15,7 +15,7 @@ int ehPrimo(int n,int rank,int numProc){
       }
    }
    if(prime){
-   		printf("%i ",i);
+   		printf("%i\n ",i);
    }
    t = t + prime;
 }
@@ -33,7 +33,7 @@ void timestamp(void){
 	now = time(NULL);
 	tm = localtime(&now);
 
-	strftime(timeBuffer,TIME_SIZE,"%d %B %Y %M: %S %p",tm); //Format time as string
+	strftime(timeBuffer,TIME_SIZE,"%d B Y M: %S %p\n",tm); //Format time as string
 
 	printf("%s\n", timeBuffer);
 	return;
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 
    int num_processos,rank_proc;
    int num,n_lo = 1, n_hi = 262144, n_factor=2;
-
+  int total = 0;
    if(argc >= 2){
         n_hi = atoi(argv[1]); 
    }else{
@@ -58,15 +58,16 @@ int main(int argc, char *argv[]){
    MPI_Comm_rank(MPI_COMM_WORLD,&rank_proc);
    
    if(rank_proc==0){
-   	timestamp();
+  // 	timestamp();
    }
 
     num = n_hi;
 
-    ehPrimo(num,rank_proc,num_processos);
+    total = ehPrimo(num,rank_proc,num_processos);
     MPI_Finalize();
     if(rank_proc==0){
-    	timestamp();
+    //	timestamp();
+      printf("total = %d\n", total);
     }
 	return 0;
 }

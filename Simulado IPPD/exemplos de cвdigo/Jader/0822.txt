@@ -1,0 +1,44 @@
+Aula 2 IPPD - 22/8
+
+Evolução do desempenho:
+    antes eram 50% de um para outro, até é cerca de 20%;
+    frequência do clock do computador é parecido com o desempenho(não igual)
+    Depois do limite da evolução atingida, começaram a alterar a arquitetura do processador(mais cores)
+    Ficou mais eficiente adicionar um core do que aumentar a frequência.
+
+    Algumas características são adicionadas no processador para melhorar o desempenho em aplicações muito usadas(navegadores, ...)
+    Operações mais comuns(multiplicação, soma...) ganham maior peso  porque pode ser feito por todos os cores. As mais específicas(codificação) ganham menor peso porque nem todos fazem essas operações.
+
+    Não colocar algo paralelo pra rodar em serial. SE PUDER PARALELIZAR, PARALELIZE. 
+
+    Mais recentemente(2006-) o desempenho de um unico core foi aumentando;
+
+Ao invés de processadores mais rápidos, colocar vários na mesma placa: processamento paralelo;
+Melhorar o desempenho agora é função do PROGRAMADOR.
+O crescimento da quantidade de dados ressalta que o desempenho precisa continuar crescendo.
+
+ex: Previsão do tempo:
+    olhar os dados passados e avaliar os dados atuais(imagens, matrizes). Muitos dados.
+
+Processamento Paralelo: Dividir os recursos entre os programas;
+
+PASSO 1: Saber se o programa á paralelizável.
+Conversão automática para paralelismo é difícil.
+
+GRANULARIDADE = quantos pedaços (grãos) se consegue quebrar o programa;
+
+Divisão de tarefas: 300 Provas de 15 questões para 3 pessoas corrigirem
+    opção 1: 100 provas pra cada um corrigire
+    opção 2: o 1 corrige de 1 a 5, o 2 corrige de 6 a 10, o 3 corrige de 11 a 15
+
+Memória compartilhada:
+    Vários cores com uma unica memória
+
+Memória distribuída:
+    Vários cores e várias memórias
+
+Computação concorrente, paralela e distribuída.
+
+
+
+

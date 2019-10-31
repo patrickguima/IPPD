@@ -1,0 +1,2 @@
+mpicc -o out arq.c
+mpirun -n [PROCESSOS] out
